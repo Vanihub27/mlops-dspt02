@@ -1,0 +1,14 @@
+pandas
+numpy
+openpyxl
+db-dtypes
+jupyter
+notebook
+ipykernel
+seaborn
+ipywidgets
+scikit-learn
+xgboost
+pydantic
+fastapi
+uvicorn[standard]
