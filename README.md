@@ -194,3 +194,145 @@ Dra. en Ciencias Biológicas | Data Scientist en formación
 Este proyecto forma parte de un proceso de formación intensiva en Data Science y MLOps, orientado a la resolución de problemas reales de negocio mediante el uso de datos.
 
 ---
+
+
+# Proyecto Integrador MLOps – Avance 2
+
+# 💳 Predicción de Pago de Créditos (Machine Learning)
+
+Este proyecto desarrolla un modelo de **Machine Learning** para predecir si un cliente realizará el pago de su crédito a tiempo.
+
+El trabajo se enmarca dentro de un flujo de análisis y modelado que incluye:
+- exploración de datos,
+- ingeniería de variables,
+- entrenamiento de modelos,
+- evaluación comparativa de desempeño.
+
+---
+
+## 🎯 Objetivo
+
+Construir un modelo capaz de clasificar clientes según su probabilidad de **pago a tiempo**, permitiendo anticipar riesgos y mejorar la toma de decisiones en una empresa financiera.
+
+---
+
+## 📁 Estructura del proyecto
+
+```bash
+mlops-dspt02/
+│
+├── src/
+│   ├── carga_datos.py
+│   ├── comprension_eda.ipynb
+│   ├── ft_engineering.py
+│   ├── model_training.py
+│   ├── model_evaluation.py
+│   └── model_training_evaluation.ipynb
+│
+├── Base_de_datos.xlsx
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🔄 Flujo de trabajo
+
+### 1. 📥 Carga de datos
+Se implementa `carga_datos.py` para centralizar la lectura del dataset.  
+Permite desacoplar el origen de datos del resto del pipeline.
+
+---
+
+### 2. 🔍 Análisis Exploratorio (EDA)
+Se realiza en `comprension_eda.ipynb`.  
+Se analizan:
+- distribución de variables,
+- valores faltantes,
+- relaciones con la variable objetivo (`Pago_a_tiempo`).
+
+---
+
+### 3. ⚙️ Feature Engineering
+Implementado en `ft_engineering.py`.  
+Incluye:
+- selección de variables,
+- separación en numéricas, categóricas y ordinales,
+- construcción de pipelines con `ColumnTransformer`.
+
+---
+
+### 4. 🤖 Entrenamiento de modelos
+Implementado en `model_training.py`.  
+Se entrenan distintos modelos de clasificación y se aplica validación cruzada para evaluar su desempeño.
+
+---
+
+### 5. 📊 Evaluación de modelos
+Implementado en `model_evaluation.py`.  
+Se calculan métricas clave:
+- Accuracy  
+- Precision  
+- Recall  
+- F1-score  
+
+Se generan comparaciones entre modelos para identificar el mejor desempeño.
+
+---
+
+### 6. 🧪 Experimentación
+Notebook: `model_training_evaluation.ipynb`  
+
+Permite:
+- probar configuraciones,
+- visualizar resultados,
+- analizar performance de los modelos.
+
+---
+
+## 📈 Métricas utilizadas
+
+Dado que el problema es de clasificación, se priorizan métricas que permiten evaluar el desempeño del modelo en distintos aspectos:
+
+- **Accuracy**: proporción de predicciones correctas.  
+- **Precision**: qué tan precisas son las predicciones positivas.  
+- **Recall**: capacidad de detectar correctamente los casos positivos.  
+- **F1-score**: balance entre precisión y recall.  
+
+---
+
+## 🧠 Enfoque
+
+El proyecto sigue buenas prácticas de Data Science:
+
+- separación de lógica en módulos (`src/`)
+- uso de pipelines para evitar *data leakage*
+- evaluación consistente entre modelos
+- organización reproducible del flujo de trabajo
+
+---
+
+## 🚀 Próximos pasos
+
+- selección del mejor modelo  
+- despliegue en API  
+- monitoreo de performance en producción  
+- detección de *data drift*  
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+- Python  
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- Jupyter Notebook  
+
+---
+
+## 👩‍💻 Autor
+
+Proyecto desarrollado por **Vanina Cavallin**  
+Como parte del programa de formación en Data Science.
