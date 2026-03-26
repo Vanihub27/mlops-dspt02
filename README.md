@@ -35,6 +35,7 @@ En esta etapa se trabaja con un dataset de ejemplo (no productivo), simulando el
 ---
 
 ## Estructura del repositorio
+##  Estructura del repositorio
 
 ```
 mlops-dspt02/
@@ -51,6 +52,7 @@ mlops-dspt02/
 ---
 
 ## Configuración del entorno
+##  Configuración del entorno
 
 ### 1. Clonar el repositorio
 
@@ -88,6 +90,7 @@ pip install -r requirements.txt
 ---
 
 ## Carga de datos
+##  Carga de datos
 
 El archivo `carga_datos.py` se encarga de:
 
@@ -104,6 +107,11 @@ Este enfoque simula una etapa previa al consumo de datos desde un **Data Warehou
 El notebook `comprension_eda.ipynb` incluye:
 
 ### Exploración inicial
+##  Análisis Exploratorio de Datos (EDA)
+
+El notebook `comprension_eda.ipynb` incluye:
+
+###  Exploración inicial
 
 * Estructura del dataset (`df.info()`)
 * Tipos de variables
@@ -111,6 +119,7 @@ El notebook `comprension_eda.ipynb` incluye:
 * Normalización de formatos
 
 ### Análisis univariable
+###  Análisis univariable
 
 * Variables numéricas:
 
@@ -123,6 +132,7 @@ El notebook `comprension_eda.ipynb` incluye:
   * Visualización de categorías
 
 ### Análisis bivariable y multivariable
+###  Análisis bivariable y multivariable
 
 * Relación entre variables
 * Correlaciones
@@ -132,6 +142,7 @@ El notebook `comprension_eda.ipynb` incluye:
 ---
 
 ## Flujo de trabajo (Git)
+##  Flujo de trabajo (Git)
 
 Este proyecto sigue un flujo básico de versionamiento:
 
@@ -144,6 +155,7 @@ Este proyecto sigue un flujo básico de versionamiento:
 ---
 
 ## Buenas prácticas aplicadas
+##  Buenas prácticas aplicadas
 
 * ✔ Separación de responsabilidades (script vs notebook)
 * ✔ Uso de entorno virtual
@@ -155,11 +167,25 @@ Este proyecto sigue un flujo básico de versionamiento:
 ---
 
 ## Autora
+##   Próximos pasos
+
+En los siguientes avances se abordará:
+
+* Ingeniería de features
+* Modelado predictivo
+* Validación de modelos
+* Pipeline de Machine Learning
+* Implementación de prácticas MLOps
+
+---
+
+##   Autora
 
 **Vanina Cavallin**
 Dra. en Ciencias Biológicas | Data Scientist en formación
 
     [GitHub](https://github.com/Vanihub27)
+  [GitHub](https://github.com/Vanihub27)
 
 ---
 
