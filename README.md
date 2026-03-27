@@ -194,145 +194,99 @@ Dra. en Ciencias Biológicas | Data Scientist en formación
 Este proyecto forma parte de un proceso de formación intensiva en Data Science y MLOps, orientado a la resolución de problemas reales de negocio mediante el uso de datos.
 
 ---
+# 🚀 Proyecto de Modelado Predictivo de Créditos
 
-
-# Proyecto Integrador MLOps – Avance 2
-
-# 💳 Predicción de Pago de Créditos (Machine Learning)
-
-Este proyecto desarrolla un modelo de **Machine Learning** para predecir si un cliente realizará el pago de su crédito a tiempo.
-
-El trabajo se enmarca dentro de un flujo de análisis y modelado que incluye:
-- exploración de datos,
-- ingeniería de variables,
-- entrenamiento de modelos,
-- evaluación comparativa de desempeño.
+Este repositorio contiene el desarrollo de un **modelo de machine learning** para predecir el comportamiento de nuevos clientes en una empresa financiera.  
+El proyecto se enmarca dentro de un flujo **MLOps**, garantizando buenas prácticas de colaboración, pruebas, despliegue y monitoreo.
 
 ---
 
-## 🎯 Objetivo
+# 📊 Proyecto de Modelado Predictivo de Créditos
 
-Construir un modelo capaz de clasificar clientes según su probabilidad de **pago a tiempo**, permitiendo anticipar riesgos y mejorar la toma de decisiones en una empresa financiera.
+Este repositorio contiene el desarrollo de un **modelo de machine learning** para predecir el comportamiento de nuevos u
+en una empresa financiera.
+
+El proyecto se enmarca dentro de un flujo **MLOps**, garantizando buenas prácticas de colaboración, pruebas, despliegue y monitoreo.
 
 ---
+
+# Proyecto Integrador MLOps – Avance 3
 
 ## 📁 Estructura del proyecto
 
 ```bash
-mlops-dspt02/
+mlops_pipeline/
 │
 ├── src/
-│   ├── carga_datos.py
+│   ├── Cargar_datos.ipynb
 │   ├── comprension_eda.ipynb
 │   ├── ft_engineering.py
+│   ├── heuristic_model.py
 │   ├── model_training.py
+│   ├── model_deploy.py
 │   ├── model_evaluation.py
-│   └── model_training_evaluation.ipynb
+│   └── model_monitoring.py
 │
-├── Base_de_datos.xlsx
+├── Base_de_datos.csv
 ├── requirements.txt
 ├── .gitignore
-└── README.md
+├── readme.md
+└── set_up.bat
 ```
 
 ---
 
-## 🔄 Flujo de trabajo
+## 🚀 Flujo de trabajo
 
-### 1. 📥 Carga de datos
-Se implementa `carga_datos.py` para centralizar la lectura del dataset.  
-Permite desacoplar el origen de datos del resto del pipeline.
+1. **Cargar_datos.ipynb**  
+Notebook para cargar datos desde un CSV de ejemplo.  
+> *En producción, Los datos se cargarán desde DWH o Data Lake.*
 
----
+2. **comprension_eda.ipynb**  
+Análisis exploratorio de datos (EDA) y generación de artefactos experimentales.
 
-### 2. 🔍 Análisis Exploratorio (EDA)
-Se realiza en `comprension_eda.ipynb`.  
-Se analizan:
-- distribución de variables,
-- valores faltantes,
-- relaciones con la variable objetivo (`Pago_a_tiempo`).
+3. **ft_engineering.py**  
+Creación de *features* y división de datos en entrenamiento y validación.  
+Incluye construcción de pipelines.
 
----
+4. **heuristic_model.py**  
+Modelo base de referencia (benchmark heurístico).
 
-### 3. ⚙️ Feature Engineering
-Implementado en `ft_engineering.py`.  
-Incluye:
-- selección de variables,
-- separación en numéricas, categóricas y ordinales,
-- construcción de pipelines con `ColumnTransformer`.
+5. **model_training.py**  
+Entrenamiento y evaluación de múltiples modelos.  
+- Funciones clave: `sumarize_classification` y `build_model`.  
+- Incluye tablas comparativas y visualizaciones.
 
----
+6. **model_deploy.py**  
+Despliegue del mejor modelo seleccionado.  
+- Creación de una imagen con dependencias y código.  
+- Exposición de un **endpoint** para predicciones batch.
 
-### 4. 🤖 Entrenamiento de modelos
-Implementado en `model_training.py`.  
-Se entrenan distintos modelos de clasificación y se aplica validación cruzada para evaluar su desempeño.
+7. **model_evaluation.py**  
+Generación de métricas del modelo desplegado en un dashboard de evaluación.
 
----
-
-### 5. 📊 Evaluación de modelos
-Implementado en `model_evaluation.py`.  
-Se calculan métricas clave:
-- Accuracy  
-- Precision  
-- Recall  
-- F1-score  
-
-Se generan comparaciones entre modelos para identificar el mejor desempeño.
+8. **model_monitoring.py**  
+Monitoreo periódico para:  
+- Detectar *data drift*.  
+- Comparar predicciones vs. datos reales.  
+- Asegurar el desempeño continuo del modelo.
 
 ---
 
-### 6. 🧪 Experimentación
-Notebook: `model_training_evaluation.ipynb`  
+## 🚀 Despliegue y Ejecución del Modelo con Docker
 
-Permite:
-- probar configuraciones,
-- visualizar resultados,
-- analizar performance de los modelos.
+Una vez clonado el repositorio se puede levantar el servicio en docker
 
----
+### 📋 Prerrequisitos
 
-## 📈 Métricas utilizadas
+- **Docker Desktop**: Asegúrate de que Docker esté instalado y en ejecución en tu máquina. Puedes descargarlo desde [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop/).
+- **Git**: Necesitas Git para clonar este repositorio.
+- **Terminal de Comandos**: Una terminal como PowerShell, CMD, Bash, o similar.
 
-Dado que el problema es de clasificación, se priorizan métricas que permiten evaluar el desempeño del modelo en distintos aspectos:
+### 🛠 Construcción de imagen con docker
 
-- **Accuracy**: proporción de predicciones correctas.  
-- **Precision**: qué tan precisas son las predicciones positivas.  
-- **Recall**: capacidad de detectar correctamente los casos positivos.  
-- **F1-score**: balance entre precisión y recall.  
+En la terminal ejecutar docker build -t api-creditos .
 
----
+Una vez construida la imagen, este comando la ejecutará como un contenedor:
 
-## 🧠 Enfoque
-
-El proyecto sigue buenas prácticas de Data Science:
-
-- separación de lógica en módulos (`src/`)
-- uso de pipelines para evitar *data leakage*
-- evaluación consistente entre modelos
-- organización reproducible del flujo de trabajo
-
----
-
-## 🚀 Próximos pasos
-
-- selección del mejor modelo  
-- despliegue en API  
-- monitoreo de performance en producción  
-- detección de *data drift*  
-
----
-
-## 🛠 Tecnologías utilizadas
-
-- Python  
-- Pandas  
-- NumPy  
-- Scikit-learn  
-- Jupyter Notebook  
-
----
-
-## 👩‍💻 Autor
-
-Proyecto desarrollado por **Vanina Cavallin**  
-Como parte del programa de formación en Data Science.
+docker run -d -p 8000:8000 --name api-creditos-container api-creditos
