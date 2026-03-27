@@ -12,3 +12,6 @@ xgboost
 pydantic
 fastapi
 uvicorn[standard]
+streamlit
+plotly
+evidently
